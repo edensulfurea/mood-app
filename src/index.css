@@ -120,8 +120,10 @@ button{
   color: var(--border);
 }
 button:hover{
-  background-color: darkslateblue;
-cursor: pointer;;
+  background-color: rgb(150, 148, 162);
+cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 h1,h2,h3{
   color: var(--border);
