@@ -21,7 +21,7 @@ function App() {
       <div
       style= {{
         height: "100vh",
-        backgroundImage: mood? `url(${moods[mood]})`: 'none',
+        backgroundImage: mood? `url(${moods[mood]})`: "linear-gradient(to right, #667eea, #764ba2)",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}>

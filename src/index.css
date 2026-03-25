@@ -116,4 +116,9 @@ button{
   font-size: larger;
   gap: 10px;
   margin: 10px;
+  border-style: dotted;
+}
+button:hover{
+  background-color: darkslateblue;
+cursor: pointer;;
 }
