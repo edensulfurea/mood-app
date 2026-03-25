@@ -8,6 +8,7 @@ import depressedBg from './assets/photo/depressed.jpg';
 function App() {
   const [mood , setMood]= useState(""); 
   const [text, setText] = useState(""); 
+  const today = new Date().toLocaleDateString();
   const moods= {
     happy: happyBg,
     sad: sadBg,
@@ -27,6 +28,7 @@ function App() {
       }}>
         <h1>Choose your Mood...</h1>
         <h2>How are you feeling today? {mood}</h2>
+        <h3>{today}</h3>
         <button onClick={()=> setMood("happy" )}>Happy</button>
           <button onClick={()=> setMood("sad")}>Sad</button>
           <button onClick={()=> setMood("angry")}>Angry</button>

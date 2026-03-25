@@ -117,8 +117,12 @@ button{
   gap: 10px;
   margin: 10px;
   border-style: dotted;
+  color: var(--border);
 }
 button:hover{
   background-color: darkslateblue;
 cursor: pointer;;
+}
+h1,h2,h3{
+  color: var(--border);
 }
