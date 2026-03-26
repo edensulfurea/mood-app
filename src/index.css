@@ -118,7 +118,9 @@ button{
   margin: 10px;
   border-style: dotted;
   color: var(--border);
+   
 }
+
 button:hover{
   background-color: rgb(150, 148, 162);
 cursor: pointer;
@@ -127,4 +129,13 @@ cursor: pointer;
 }
 h1,h2,h3{
   color: var(--border);
+}
+.card{
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: space-between;
+  gap: 8px;
 }

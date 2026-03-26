@@ -78,17 +78,32 @@ function App() {
 </button>
 <h3>Diary</h3>
 
+<div className='card' style={{ display: "flex", flexDirection: "row", alignItems: "baseline" }}>
+
 {entries.map((e, i) => (
-  <div key={i}>
+  <div
+    key={i}
+    style={{
+      background: "rgba(0,0,0,0.5)",
+      color: "white",
+      padding: "10px",
+      margin: "10px",
+      borderRadius: "10px",
+      maxWidth: "300px"
+    }}
+  >
     <p>{e.date}</p>
     <p>{e.mood}</p>
     <p>{e.text}</p>
   </div>
 ))}
-    
-      </div>
-      </div>
-    );
-};
 
-export default App
+</div>
+</div>
+<footer>Made by @edensulfurea</footer>
+</div>
+
+);
+}
+
+export default App;
