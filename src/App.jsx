@@ -8,13 +8,13 @@ import depressedBg from './assets/photo/depressed.jpg';
 function App() {
   const [mood , setMood]= useState(""); 
   const [text, setText] = useState(""); 
-  const [date, setDate] = useState(""); 
   const [entries, setEntries] = useState([]);
+  const today = new Date().toLocaleDateString();
   const saveEntry = () => {
   const newEntry = {
     mood,
     text,
-    date
+    date: new Date().toLocaleString()
   };
 
   const updated = [...entries, newEntry];
@@ -23,7 +23,7 @@ function App() {
 
   localStorage.setItem("moodEntries", JSON.stringify(updated));
 };
-  const today = new Date().toLocaleDateString();
+ 
   const moods= {
     happy: happyBg,
     sad: sadBg,
@@ -68,11 +68,8 @@ function App() {
       
 
       <p> {text}</p>
-      <input
-  type="date"
-  value={date}
-  onChange={(e) => setDate(e.target.value)}
-/>
+      
+
 <button onClick={saveEntry}>
   Save mood
 </button>
