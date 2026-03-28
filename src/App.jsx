@@ -9,13 +9,35 @@ function App() {
   const [mood , setMood]= useState(""); 
   const [text, setText] = useState(""); 
   const [entries, setEntries] = useState([]);
+
+  const [user,setUser]= useState("");
+  const [isLogged, setIsLogged]= useState(false);
+
+const handleLogin = ()=>{
+  if(user.trim !== ""){
+    setIsLogged(true);
+    localStorage.getItem("user", user);
+  }
+}
+//mantieni login al refresh
+
+useEffect(()=>{
+  const savedUser = localStorage.getItem("user");
+  if(savedUser){
+    setUser(savedUser);
+    setIsLogged(true);
+  }
+},[]);
+
   const today = new Date().toLocaleDateString();
   const saveEntry = () => {
   const newEntry = {
     mood,
     text,
     date: new Date().toLocaleString()
+    
   };
+
 
   const updated = [...entries, newEntry];
 
@@ -23,6 +45,7 @@ function App() {
 
   localStorage.setItem("moodEntries", JSON.stringify(updated));
 };
+  
  
   const moods= {
     happy: happyBg,
@@ -38,8 +61,22 @@ function App() {
     setEntries(JSON.parse(saved));
   }
 }, []);
- 
+ if(!isLogged){
+  return(
+    <div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+    <h2>Enter your name:</h2>
+     <input
+        type="text"
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
+        placeholder="Your name..."
+      />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  )
+ }
   return (
+    
     
       <div
       style={{
@@ -48,6 +85,8 @@ function App() {
     ? `url(${moods[mood]}) center/cover no-repeat`
     : "linear-gradient(to right, #667eea, #764ba2)"
 }}>
+
+  <header>Welcome, {user}</header>
         <h1>Choose your Mood...</h1>
         <h2>How are you feeling today? {mood}</h2>
         <h3>{today}</h3>
